@@ -17,6 +17,11 @@
 		public static const TOURNAMENT:int = 2;
 		
 		/**
+		 * constant for TOURNAMENT selection 
+		 */
+		public static const ELITE:int = 3;
+		
+		/**
 		 * Number of new random genomes per generation.
 		 */
 		public var numNewPerGeneration:int = 1;
@@ -218,6 +223,11 @@
 				case TOURNAMENT :
 					nextGenerationTournament();
 					break;
+				case ELITE:
+					nextGenerationElite();
+					break;
+				default:
+					break;
 			}
 		}
 		
@@ -339,6 +349,12 @@
 			//tournament doesn't use carryover
 			replacePopulation(newPop);
 			
+		}
+		
+		private function nextGenerationElite():void {
+			//TODO:sort population by elite
+			//
+//			replacePopulation(newPop);
 		}
 		
 		/**
