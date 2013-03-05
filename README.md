@@ -3,6 +3,10 @@ as3MachineLearning
 
 Best practice on Machine Learning by AS3 language.
 
-Reference
-==================
+* Reference
+
 Google code:https://code.google.com/p/as3learning/
+
+* Maven repository
+
+http://repository-godpaper.forge.cloudbees.com/snapshot/com/godpaper/as3/as3MachineLearning/
