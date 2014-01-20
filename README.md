@@ -15,6 +15,8 @@ Google code:https://code.google.com/p/as3learning/
 
 http://repository-godpaper.forge.cloudbees.com/snapshot/com/godpaper/as3/as3MachineLearning/
 
-* Genetic Algorithms and What They Can Do For You
+* Genetic Algorithms
 
 http://www.wardsystems.com/ga101.asp
+
+http://www.obitko.com/tutorials/genetic-algorithms/ga-basic-description.php
