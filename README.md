@@ -1,7 +1,7 @@
 as3MachineLearning
 ==================
 
-Best practice on Machine Learning by AS3 language.
+A pure AS3 library on Machine Learning.
 
 * Reference
 
