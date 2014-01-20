@@ -3,6 +3,10 @@ as3MachineLearning
 
 A pure AS3 library on Machine Learning.
 
+* AS3 Example
+
+https://github.com/yangboz/glowing-avenger/
+
 * Reference
 
 Google code:https://code.google.com/p/as3learning/
