@@ -3,6 +3,10 @@
 	/**
 	* performs actual genetic algorithms
 	* @author srs
+	* @see http://en.wikipedia.org/wiki/Genetic_algorithm
+	* @see http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)
+	* @see http://www.codeproject.com/Articles/15979/Evolution-computations-on-C
+	* @see http://www.ai-junkie.com/ga/intro/gat1.html
 	*/
 	public class GeneticEngine implements EvolvableComparator{
 		
@@ -17,7 +21,7 @@
 		public static const TOURNAMENT:int = 2;
 		
 		/**
-		 * constant for TOURNAMENT selection 
+		 * constant for ELITE selection 
 		 */
 		public static const ELITE:int = 3;
 		
@@ -350,10 +354,32 @@
 			replacePopulation(newPop);
 			
 		}
-		
+
 		private function nextGenerationElite():void {
 			//TODO:sort population by elite
 			//
+			/*
+			// sort chromosomes
+			chromosomes.Sort( );
+			
+			// remove bad chromosomes
+			chromosomes.RemoveRange( size, chromosomes.Count - size );
+			
+			// shuffle chromosomes
+			if ( shuffle )
+			{
+				for ( int i = 0, n = size / 2; i < n; i++ )
+				{
+					int c1 = rand.Next( size );
+					int c2 = rand.Next( size );
+					
+					// swap two chromosomes
+					object temp = chromosomes[c1];
+					chromosomes[c1] = chromosomes[c2];
+					chromosomes[c2] = temp;
+				}
+			}
+			*/
 //			replacePopulation(newPop);
 		}
 		
@@ -387,10 +413,10 @@
 		 */
 		public function setSelectionMode(s:int):void
 		{
-			if ((s != ROULETTE) && (s != TOURNAMENT))
-			{
-				throw new ArgumentError("illegal selection mode.  Use ROULETTE or TOURNAMENT");
-			}
+//			if ((s != ROULETTE) && (s != TOURNAMENT))
+//			{
+//				throw new ArgumentError("illegal selection mode.  Use ROULETTE or TOURNAMENT");
+//			}
 			_selectionMode = s; 
 		}
 		
