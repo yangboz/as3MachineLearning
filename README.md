@@ -7,6 +7,10 @@ A pure AS3 library on Machine Learning.
 
 https://github.com/yangboz/glowing-avenger/
 
+* ASDOC
+
+http://htmlpreview.github.io/?https://github.com/yangboz/as3MachineLearning/blob/master/target/asdoc/index.html
+
 * Reference
 
 Google code:https://code.google.com/p/as3learning/
