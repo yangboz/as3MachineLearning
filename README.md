@@ -25,6 +25,8 @@ http://www.wardsystems.com/ga101.asp
 
 http://www.obitko.com/tutorials/genetic-algorithms/ga-basic-description.php
 
+http://www.ai-junkie.com/ga/intro/gat1.html
+
 
 History
 ==================
