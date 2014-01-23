@@ -369,8 +369,31 @@
 		 * <a href="http://www.jpier.org/PIERB/pierb51/20.13032008.pdf">GA Pareto Elite Selection</a> </br>
 		 */		
 		private function nextGenerationElite():void {
-			//TODO:sort population by elite
-			//
+			//sort population by fitness
+			population.sort(compareFitness);
+			trace("sorted pop: " + population.join("\n"),"length: ",population.length);
+			//remove bad chromosomes
+			const ELITE_SIZE:int = population.length * 0.1;
+			population.splice(ELITE_SIZE,population.length - ELITE_SIZE);
+			trace("Elite length and population :",population.length,population);
+			// shuffle chromosomes
+			var rand:Function = function():int
+			{
+				return Math.floor(Math.random() * population.length);
+			}
+			
+			for ( var i:int = 0; i < ELITE_SIZE / 2; i++ )
+			{
+				var c1:int = rand();
+				var c2:int = rand();
+				
+				// swap two chromosomes
+				var temp:Object = population[c1];
+				population[c1] = population[c2];
+				population[c2] = temp;
+			}
+			//TODO:recombination process.
+			var newPop:Array = population.concat();
 			/*
 			// sort chromosomes
 			chromosomes.Sort( );
@@ -393,7 +416,7 @@
 				}
 			}
 			*/
-//			replacePopulation(newPop);
+			replacePopulation(newPop);
 		}
 		
 		/**
