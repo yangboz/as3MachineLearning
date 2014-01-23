@@ -354,7 +354,20 @@
 			replacePopulation(newPop);
 			
 		}
-
+		/**
+		 * For the elite selection phase,we have to calculate the fitness of each individual </br>
+		 * and then select the top x percent of population based on the fitnesses. </br>
+		 * An initial design is to simply sort the entire population by their fitnesses. </br>
+		 * and then select the top x percent. However, the runtime of sorting is LG(N). </br>
+		 * Where N is the popluation size. So we wanted to better than that. </br>
+		 * We chose Quick Select in the end because it has an excepted runtime of O(N). </br>
+		 * Quick Select is ideal since it partitions the population into the none-elites and elites. </br>
+		 * and we do not require the elites to be in any particular order. </br>
+		 * Quick Select actually needs the Kth largest element of an array, but does this by recursive partitioning. </br>
+		 * It is similar to Quick Sort. </br>
+		 * <a href="www.andrew.cmu.edu/user/aneronsk/418p/report.pdf">A parallel GA framework</a> </br>
+		 * <a href="http://www.jpier.org/PIERB/pierb51/20.13032008.pdf">GA Pareto Elite Selection</a> </br>
+		 */		
 		private function nextGenerationElite():void {
 			//TODO:sort population by elite
 			//

@@ -1,15 +1,15 @@
 Text for description in de.polygonal.math.null is not valid.
 org.xml.sax.SAXParseException: 在实体引用中实体名称必须紧跟在“&”之后。
 
-Text for return in com.suckatmath.machinelearning.genetic.core:EvolvableComparator/com.suckatmath.machinelearning.genetic.core:EvolvableComparator:compareFitness is not valid.
-org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
-
-Text for description in com.suckatmath.machinelearning.genetic.core:GeneticEngine/setCrossoverNumParents is not valid.
-org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
-
 Text for param in de.polygonal.ds:DLinkedList/sort is not valid.
 org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
 
 Text for param in de.polygonal.ds:SLinkedList/sort is not valid.
+org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
+
+Text for return in com.suckatmath.machinelearning.genetic.core:IEvolvableComparator/com.suckatmath.machinelearning.genetic.core:IEvolvableComparator:compareFitness is not valid.
+org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
+
+Text for description in com.suckatmath.machinelearning.genetic.core:GeneticEngine/setCrossoverNumParents is not valid.
 org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
 
