@@ -4,20 +4,20 @@
 	* creates new Evolvables from Genomes
 	* @author srs
 	*/
-	public interface EvolvableFactory {
+	public interface IEvolvableFactory {
 
 		/**
 		 * 
 		 * @param	g:Genome may be null - generate a valid evolvable anyway.
 		 * @return Evolvable
 		 */
-		function makeEvolvable(g:Genome = null):Evolvable;
+		function makeEvolvable(g:IGenome = null):IEvolvable;
 		
 		/**
 		 * 
 		 * @return Evolvable from random genome
 		 */
-		function makeRandomEvolvable():Evolvable;
+		function makeRandomEvolvable():IEvolvable;
 		
 	}
 	

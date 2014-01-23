@@ -1,11 +1,11 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Gene;
+	import com.suckatmath.machinelearning.genetic.core.IGene;
 	
 	/**
 	* Gene consisting of a fixed length String
 	* @author Default
 	*/
-	public class FixedLengthStringGene implements Gene{
+	public class FixedLengthStringGene implements IGene{
 		
 		/**
 		 * how many chars in the string
@@ -56,7 +56,7 @@
 		 * implementation of Gene.mutate.  Creates a new FixedLengthStringGene slightly different from this one
 		 * @return FixedLengthStringGene
 		 */
-		public function mutate():Gene {
+		public function mutate():IGene {
 			var f:FixedLengthStringGene = new FixedLengthStringGene(length, alphabet);
 			f.content = this.content.concat(""); //ghetto clone
 			var prob:Number = 1 / length; // probability that any one letter will differ
@@ -85,7 +85,7 @@
 		 * build a new random FixedLengthStringGene
 		 * @return FixedLengthStringGene as Gene
 		 */
-		public function newRandom():Gene {
+		public function newRandom():IGene {
 			var f:FixedLengthStringGene = new FixedLengthStringGene(length, alphabet);
 			return f;
 		}

@@ -6,14 +6,14 @@
 	* 
 	* @author srs
 	*/
-	public interface Evolvable {
+	public interface IEvolvable {
 		
 		
 		/**
 		 * gets the genome used to generate this evolvable, and mutate/combine to create a new genome for next generation
 		 * @return 
 		 */
-		function getGenome():Genome;
+		function getGenome():IGenome;
 		
 		/**
 		 * The scale of this number is arbitrary.  0-1 will work just as well as -100000 - 100000 or other range

@@ -1,6 +1,6 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Evolvable;
-	import com.suckatmath.machinelearning.genetic.core.Genome;
+	import com.suckatmath.machinelearning.genetic.core.IEvolvable;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
 	
 	/**
 	* Factory to create EvolvableStrings
@@ -41,7 +41,7 @@
 		 * @param	g FixedLengthStringGenome as Genome
 		 * @return EvolvableString as Evolvable
 		 */
-		public override function buildEvolvable(g:Genome):Evolvable {
+		public override function buildEvolvable(g:IGenome):IEvolvable {
 			var toreturn:EvolvableString = new EvolvableString();
 			toreturn.setGenome(g);
 			return toreturn;

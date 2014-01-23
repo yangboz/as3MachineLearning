@@ -8,7 +8,7 @@
 	* @see http://www.codeproject.com/Articles/15979/Evolution-computations-on-C
 	* @see http://www.ai-junkie.com/ga/intro/gat1.html
 	*/
-	public class GeneticEngine implements EvolvableComparator{
+	public class GeneticEngine implements IEvolvableComparator{
 		
 		/**
 		 * constant for ROULETTE selection : proportional selection.  This is the default selection mode
@@ -78,12 +78,12 @@
 		/**
 		 * EvolvableComparator to use in TOURNAMENT mode.  defaults to this Genetic Engine
 		 */
-		private var _tournamentComparator:EvolvableComparator;
+		private var _tournamentComparator:IEvolvableComparator;
 		
 		/**
 		 * factory to use to create new Evolvables
 		 */
-		private var factory:EvolvableFactory;
+		private var factory:IEvolvableFactory;
 		
 		
 		/**
@@ -96,7 +96,7 @@
 		 * @param	cparents int Number of parents to use for crossover
 		 * @param	ccross int Number of points to cross over in crossover operation
 		 */
-		public function GeneticEngine(f:EvolvableFactory, mutate:Boolean = true, crossover:Boolean = true, npg:int = 1, mprob:Number = 0.5, cparents:int = 2, ccross:int =1 ) {
+		public function GeneticEngine(f:IEvolvableFactory, mutate:Boolean = true, crossover:Boolean = true, npg:int = 1, mprob:Number = 0.5, cparents:int = 2, ccross:int =1 ) {
 			factory = f;
 			_mutate = mutate;
 			_crossover = crossover;
@@ -211,7 +211,7 @@
 		 * set EvolvableFactory to use to create new Evolvables
 		 * @param	fac
 		 */
-		public function setFactory(fac:EvolvableFactory):void {
+		public function setFactory(fac:IEvolvableFactory):void {
 			factory = fac;
 		}
 		
@@ -257,7 +257,7 @@
 			var r:Number;
 			var rand:Function = Math.random;
 			var parents:Array; //of Genome
-			var genome:Genome;
+			var genome:IGenome;
 			for (i = 0; i < population.length - numNewPerGeneration; i++) {
 				if (_crossover) {
 					parents = new Array(); //of Genome
@@ -297,8 +297,8 @@
 			var rand:Function = Math.random;
 			var matingPool:Array = new Array(population.length); //of Evolvable, filled by tournament selection
 			var i:int;
-			var e1:Evolvable;
-			var e2:Evolvable;
+			var e1:IEvolvable;
+			var e2:IEvolvable;
 			for (i = 0; i < population.length; i++)
 			{
 				//pick two at random, compare, put fitter in matingPool
@@ -325,7 +325,7 @@
 			var newPop:Array = new Array(); //of new Evolvables
 			var r:Number;
 			var parents:Array; //of Genome
-			var genome:Genome;
+			var genome:IGenome;
 			for (i = 0; i < population.length - numNewPerGeneration; i++) {
 				if (_crossover) {
 					parents = new Array(); //of Genome
@@ -424,7 +424,7 @@
 		 * set EvolvableCOmparator to use during TOURNAMENT selection
 		 * @param	e
 		 */
-		public function setTournamentComparator(e:EvolvableComparator):void
+		public function setTournamentComparator(e:IEvolvableComparator):void
 		{
 			_tournamentComparator = e;
 		}
@@ -482,7 +482,7 @@
 		 * @param	b
 		 * @return
 		 */
-		public function compareFitness(a:Evolvable, b:Evolvable):int {
+		public function compareFitness(a:IEvolvable, b:IEvolvable):int {
 			var diff:Number = b.getFitness() - a.getFitness();
 			if (diff < 0) {
 				return -1;

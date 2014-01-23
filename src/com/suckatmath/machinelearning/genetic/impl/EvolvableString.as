@@ -1,6 +1,6 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Evolvable;
-	import com.suckatmath.machinelearning.genetic.core.Genome;
+	import com.suckatmath.machinelearning.genetic.core.IEvolvable;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
 	import com.suckatmath.machinelearning.markov.MarkovChain;
 	import flash.utils.Dictionary;
 	
@@ -9,7 +9,7 @@
 	* Useful only for demonstrating genetic algorithms, since gaol is already known
 	* @author Default
 	*/
-	public class EvolvableString implements Evolvable {
+	public class EvolvableString implements IEvolvable {
 		/**
 		 * goal string.  By default: "I will here give a brief sketch of the progress of opinion on the Origin of Species"
 		 */
@@ -68,7 +68,7 @@
 		 * set the genome of this EvolvableString
 		 * @param	g FixedLengthStringGenome
 		 */
-		public function setGenome(g:Genome):void {
+		public function setGenome(g:IGenome):void {
 			genome = g as FixedLengthStringGenome;
 		}
 		
@@ -76,7 +76,7 @@
 		 * get the FixedLengthStringGenome backing
 		 * @return FixedLengthStringGenome as Genome
 		 */
-		public function getGenome():Genome {
+		public function getGenome():IGenome {
 			return genome;
 		}
 		

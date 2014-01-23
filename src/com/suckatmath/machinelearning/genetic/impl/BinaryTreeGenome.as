@@ -1,6 +1,6 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Genome;
-	import com.suckatmath.machinelearning.genetic.core.Gene;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
+	import com.suckatmath.machinelearning.genetic.core.IGene;
 	import flash.utils.Dictionary;
 	
 	/**
@@ -8,12 +8,12 @@
 	* This uses non-isomorphic trees, and may grow arbitrarily.
 	* @author srs
 	*/
-	public class BinaryTreeGenome implements Genome
+	public class BinaryTreeGenome implements IGenome
 	{
 		/**
 		 * content Gene for this node
 		 */
-		public var gene:Gene; 
+		public var gene:IGene; 
 		
 		/**
 		 * BinaryTreeGenome left child of this Genome
@@ -85,7 +85,7 @@
 		 * @param	probability
 		 * @return Genome
 		 */
-		public function mutate(probability:Number):Genome {
+		public function mutate(probability:Number):IGenome {
 			var toreturn:BinaryTreeGenome = this.clone() as BinaryTreeGenome;
 			var p:Number;
 			p = Math.random();
@@ -111,7 +111,7 @@
 		 * @param	numpoints int number of splice points for subtree replacement
 		 * @return  BinaryTreeGenome as Genome
 		 */
-		public function crossover(others:Array, numpoints:int):Genome {
+		public function crossover(others:Array, numpoints:int):IGenome {
 			var toreturn:BinaryTreeGenome = this.clone() as BinaryTreeGenome;
 			if (others.indexOf(this) == -1) {
 				others.push(toreturn);
@@ -151,7 +151,7 @@
 		 * generate a new random BinaryTreeGenome
 		 * @return BinaryTreeGenome as Genome
 		 */
-		public function newRandom():Genome {
+		public function newRandom():IGenome {
 			//since trees are not guaranteed to be isomorphic, create nodes willy nilly.  Up to rand()*limit.
 			var toreturn:BinaryTreeGenome = new BinaryTreeGenome();
 			var limit:int = Math.floor(Math.random() * randomNodeLimit);
@@ -189,7 +189,7 @@
 		 * return a copy of this BinaryTreeGenome
 		 * @return BinaryTreeGenome as Genome
 		 */
-		public function clone():Genome {
+		public function clone():IGenome {
 			var toreturn:BinaryTreeGenome = new BinaryTreeGenome();
 			toreturn.gene = this.gene;
 			if (left != null) {

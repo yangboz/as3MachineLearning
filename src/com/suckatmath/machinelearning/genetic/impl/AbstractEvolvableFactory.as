@@ -1,7 +1,7 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.EvolvableFactory;
-	import com.suckatmath.machinelearning.genetic.core.Evolvable;
-	import com.suckatmath.machinelearning.genetic.core.Genome;
+	import com.suckatmath.machinelearning.genetic.core.IEvolvableFactory;
+	import com.suckatmath.machinelearning.genetic.core.IEvolvable;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
 	
 	/**
 	* Convenience base class for EvolvableFactories.  Not required, but useful.
@@ -9,18 +9,18 @@
 	* Don't use this directly.  Extend it.
 	* @author srs
 	*/
-	public class AbstractEvolvableFactory implements EvolvableFactory {
+	public class AbstractEvolvableFactory implements IEvolvableFactory {
 		
 		/**
 		 * template genome to use.  makeEvolvable can call newRandom on this.
 		 */
-		public var exampleGenome:Genome;
+		public var exampleGenome:IGenome;
 		
 		/**
 		 * 
 		 * @param	g Genome to use as example
 		 */
-		public function AbstractEvolvableFactory(g:Genome) {
+		public function AbstractEvolvableFactory(g:IGenome) {
 			exampleGenome = g;
 		}
 		
@@ -28,14 +28,14 @@
 		 * create a new Evolvable
 		 * @param	g - if not given, will use exampleGenome
 		 */
-		public function makeEvolvable(g:Genome = null):Evolvable {
+		public function makeEvolvable(g:IGenome = null):IEvolvable {
 			if (g == null) {
 				g = exampleGenome.newRandom();
 			}
 			return buildEvolvable(g);
 		}
 		
-		public function makeRandomEvolvable():Evolvable {
+		public function makeRandomEvolvable():IEvolvable {
 			return makeEvolvable();
 		}
 		
@@ -44,7 +44,7 @@
 		 * @param	g
 		 * @return
 		 */
-		public function buildEvolvable(g:Genome):Evolvable {
+		public function buildEvolvable(g:IGenome):IEvolvable {
 			return new DefaultEvolvable();
 		}
 		

@@ -4,20 +4,20 @@
 	* It is not necessary to use this interface if you define your own implementations of Genome, however it can be convenient
 	* @author srs
 	*/
-	public interface Gene {
+	public interface IGene {
 		
 		/**
 		 * return a slight variation of this Gene in a new Gene instance
 		 * @return Gene
 		 */
-		function mutate():Gene;
+		function mutate():IGene;
 		
 		/**
 		 * create and return a new random Gene
 		 * 
 		 * @return Gene
 		 */
-		function newRandom():Gene;
+		function newRandom():IGene;
 		
 	}
 	

@@ -1,11 +1,11 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Genome;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
 	
 	/**
 	* An entire Genome based on a single backing String
 	* @author srs
 	*/
-	public class FixedLengthStringGenome implements Genome {
+	public class FixedLengthStringGenome implements IGenome {
 		/**
 		 * length of backing string
 		 */
@@ -59,7 +59,7 @@
 		 * @param	probability Number
 		 * @return FixedLengthStringGenome as Genome
 		 */
-		public function mutate(probability:Number):Genome
+		public function mutate(probability:Number):IGenome
 		{
 			var toreturn:FixedLengthStringGenome = this.clone() as FixedLengthStringGenome;
 			if (Math.random() < probability)
@@ -78,7 +78,7 @@
 		 * @param	probability
 		 * @return
 		 */
-		private function shiftForward():Genome
+		private function shiftForward():IGenome
 		{
 			var idx:int = Math.floor(Math.random() * content.length);
 			var extent:int = Math.floor(Math.random() * (content.length - idx)); //int between 0 and however many chars there are after idx
@@ -97,7 +97,7 @@
 		 * @param	probability
 		 * @return
 		 */
-		private function shiftBack():Genome
+		private function shiftBack():IGenome
 		{
 			var idx:int = Math.floor(Math.random() * content.length);
 			var extent:int = Math.floor(Math.random() * (idx)); //int between 0 and idx.  how many chars to delete
@@ -113,7 +113,7 @@
 		 * returns a mutated copy, with a single letter replaced by a random letter from alphabet
 		 * @return FixedLengthStringGenome as Genome
 		 */
-		private function transcriptionError():Genome {
+		private function transcriptionError():IGenome {
 			var toreturn:FixedLengthStringGenome = this.clone() as FixedLengthStringGenome;
 			var before:String;
 			var after:String;
@@ -138,7 +138,7 @@
 		 * @param	np int number of crossover points
 		 * @return FixedLengthStringGenome as Genome
 		 */
-		public function crossover(others:Array, np:int):Genome {
+		public function crossover(others:Array, np:int):IGenome {
 			var parents:Array;
 			if (others.indexOf(this) == -1) {
 				parents = others.concat(this);
@@ -183,7 +183,7 @@
 		 * return a copy of this Genome
 		 * @return
 		 */
-		public function clone():Genome {
+		public function clone():IGenome {
 			var toreturn:FixedLengthStringGenome = new FixedLengthStringGenome(length, alphabet, content);
 			return toreturn;
 		}
@@ -192,7 +192,7 @@
 		 * return a new FixedLengthStringGenome filled with random letters from alphabet
 		 * @return
 		 */
-		public function newRandom():Genome {
+		public function newRandom():IGenome {
 			return new FixedLengthStringGenome(length, alphabet);
 		}
 		

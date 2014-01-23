@@ -1,13 +1,13 @@
 ﻿package com.suckatmath.machinelearning.genetic.impl {
-	import com.suckatmath.machinelearning.genetic.core.Gene;
-	import com.suckatmath.machinelearning.genetic.core.Genome;
+	import com.suckatmath.machinelearning.genetic.core.IGene;
+	import com.suckatmath.machinelearning.genetic.core.IGenome;
 	
 	/**
 	* Basic array backed genome implementation.  Use this for collections of independently varying genes.
 	* This is not a good match for genomes in which copying, swapping, or moving of genes.
 	* @author srs
 	*/
-	public class ArrayGenome implements Genome {
+	public class ArrayGenome implements IGenome {
 		private var backing:Array; //of Gene
 		
 		/**
@@ -18,7 +18,7 @@
 		/**
 		 * example Gene to use for new random Genes
 		 */
-		public var exampleGene:Gene;
+		public var exampleGene:IGene;
 		
 		/**
 		 * create a new empty ArrayGenome
@@ -40,7 +40,7 @@
 		 * set example Gene to use for new random genes
 		 * @param	g
 		 */
-		public function setExampleGene(g:Gene):void {
+		public function setExampleGene(g:IGene):void {
 			exampleGene = g;
 		}
 		
@@ -49,7 +49,7 @@
 		 * @param	probability Number between 0 and 1
 		 * @return
 		 */
-		public function mutate(probability:Number):Genome {
+		public function mutate(probability:Number):IGenome {
 			var toreturn:ArrayGenome = this.clone() as ArrayGenome;
 			var p:Number = Math.random();
 			if (p < probability) //we do mutate
@@ -65,7 +65,7 @@
 		 * @param	others
 		 * @return
 		 */
-		public function crossover(others:Array, numpoints:int):Genome {
+		public function crossover(others:Array, numpoints:int):IGenome {
 			var parents:Array;
 			if (others.indexOf(this) == -1) {
 				parents = others.concat(this);
@@ -105,7 +105,7 @@
 		 * generate a new random genome.  Uses exampleGene to create random Genes
 		 * @return Genome
 		 */
-		public function newRandom():Genome {
+		public function newRandom():IGenome {
 			var toreturn:ArrayGenome = new ArrayGenome();
 			toreturn.setLength(length);
 			for (var i:int = 0; i < length; i++) {
@@ -118,7 +118,7 @@
 		 * generate a copy of this Genome.
 		 * @return Genome
 		 */
-		public function clone():Genome {
+		public function clone():IGenome {
 			var toreturn:ArrayGenome = new ArrayGenome();
 			toreturn.backing = this.backing.concat(); //ghetto clone.
 			return toreturn;
