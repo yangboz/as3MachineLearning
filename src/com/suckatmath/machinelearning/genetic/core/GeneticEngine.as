@@ -373,7 +373,7 @@
 			population.sort(compareFitness);
 			trace("sorted pop: " + population.join("\n"),"length: ",population.length);
 			//remove bad chromosomes
-			const ELITE_SIZE:int = population.length * 0.1;
+			const ELITE_SIZE:int = population.length * 0.2;//Pareto Elite Selection 2/8
 			population.splice(ELITE_SIZE,population.length - ELITE_SIZE);
 			trace("Elite length and population :",population.length,population);
 			// shuffle chromosomes
@@ -386,7 +386,7 @@
 			{
 				var c1:int = rand();
 				var c2:int = rand();
-				
+				trace("c1:",c1,"c2:",c2);
 				// swap two chromosomes
 				var temp:Object = population[c1];
 				population[c1] = population[c2];
